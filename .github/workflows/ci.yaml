@@ -26,10 +26,12 @@ jobs:
         run: yarn install
 
       - name: Install pods
-        run: cd ios && bundle exec pod install
+        working-directory: ios
+        run: bundle exec pod install
 
       #   - name: Build iOS
       #     run: npx react-native build-ios
 
       - name: Build with XCode
+        working-directory: ios
         run: xcodebuild -workspace FlyCIReactNativeApp.xcworkspace -configuration Debug -scheme FlyCIReactNativeApp -destination generic/platform=iOS
