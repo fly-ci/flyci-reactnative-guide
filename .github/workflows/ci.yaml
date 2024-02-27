@@ -16,22 +16,28 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Check xcode-select --version
-        run: xcode-select --version
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
 
-      - name: Install Bundle
-        run: bundle install
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3' # Not needed with a .ruby-version file
+          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+      #   - name: Install Bundle
+      #     run: bundle install
 
       - name: Install node modules
-        run: yarn install
+        run: yarn install --immutable
 
       - name: Install pods
         working-directory: ios
         run: bundle exec pod install
 
-      #   - name: Build iOS
-      #     run: npx react-native build-ios
-
-      - name: Build with XCode
+      - name: Build iOS
         working-directory: ios
-        run: xcodebuild -workspace FlyCIReactNativeApp.xcworkspace -configuration Debug -scheme FlyCIReactNativeApp -destination generic/platform=iOS
+        run: npx react-native build-ios
+
+    #   - name: Build with XCode
+    #     working-directory: ios
+    #     run: xcodebuild -workspace FlyCIReactNativeApp.xcworkspace -configuration Debug -scheme FlyCIReactNativeApp -destination generic/platform=iOS
