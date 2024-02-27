@@ -32,4 +32,4 @@ jobs:
       #     run: npx react-native build-ios
 
       - name: Build with XCode
-        run: xcodebuild -workspace FlyCIReactNativeApp.xcworkspace -configuration Debug -scheme FlyCIReactNativeApp -destination generic/platform=iOS Simulator
+        run: xcodebuild -workspace FlyCIReactNativeApp.xcworkspace -configuration Debug -scheme FlyCIReactNativeApp -destination generic/platform=iOS
