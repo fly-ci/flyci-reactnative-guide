@@ -29,10 +29,10 @@ jobs:
         working-directory: ios
         run: bundle exec pod install
 
-      - name: Build iOS
-        working-directory: ios
-        run: npx react-native build-ios
+      #   - name: Build iOS
+      #     working-directory: ios
+      #     run: npx react-native build-ios
 
-    #   - name: Build with XCode
-    #     working-directory: ios
-    #     run: xcodebuild -workspace FlyCIReactNativeApp.xcworkspace -configuration Debug -scheme FlyCIReactNativeApp -destination generic/platform=iOS
+      - name: Build with XCode
+        working-directory: ios
+        run: xcodebuild -workspace FlyCIReactNativeApp.xcworkspace -configuration Debug -scheme FlyCIReactNativeApp -destination generic/platform=iOS Simulator
