@@ -22,9 +22,9 @@ jobs:
       - name: Install node modules
         run: yarn install --immutable
 
-      #   - name: Install pods
-      #     working-directory: ios
-      #     run: bundle exec pod install
+      - name: Install pods
+        working-directory: ios
+        run: bundle exec pod install
 
       - name: Build iOS
         working-directory: ios
