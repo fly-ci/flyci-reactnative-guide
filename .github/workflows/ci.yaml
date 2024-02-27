@@ -20,10 +20,7 @@ jobs:
         run: bundle install
 
       - name: Install pods
-        run: bundle exec pod install
-
-      - name: Install pods
-        run: bundle exec pod install
+        run: cd ios && bundle exec pod install
 
       - name: Build iOS
         run: npx react-native build-ios
