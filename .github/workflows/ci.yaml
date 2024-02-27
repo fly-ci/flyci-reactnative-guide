@@ -38,12 +38,8 @@ jobs:
           set -o pipefail
           bundle exec pod install
 
-      #   - name: Build iOS
-      #     working-directory: ios
-      #     run: npx react-native build-ios
-
-      - name: Build with XCode
+      - name: Build iOS
         working-directory: ios
         run: |
           set -o pipefail
-          xcodebuild -workspace FlyCIReactNativeApp.xcworkspace -configuration Debug -scheme FlyCIReactNativeApp -destination generic/platform="iOS Simulator"
+          npx react-native build-ios
