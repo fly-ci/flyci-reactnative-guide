@@ -23,14 +23,20 @@ jobs:
         run: /usr/bin/xcodebuild -version
 
       - name: Install Bundle
-        run: bundle install
+        run: |
+          set -o pipefail
+          bundle install
 
       - name: Install node modules
-        run: yarn install --immutable
+        run: |
+          set -o pipefail
+          yarn install --immutable
 
       - name: Install pods
         working-directory: ios
-        run: bundle exec pod install
+        run: |
+          set -o pipefail
+          bundle exec pod install
 
       #   - name: Build iOS
       #     working-directory: ios
@@ -38,4 +44,6 @@ jobs:
 
       - name: Build with XCode
         working-directory: ios
-        run: xcodebuild -workspace FlyCIReactNativeApp.xcworkspace -configuration Debug -scheme FlyCIReactNativeApp -destination generic/platform="iOS Simulator"
+        run: |
+          set -o pipefail
+          xcodebuild -workspace FlyCIReactNativeApp.xcworkspace -configuration Debug -scheme FlyCIReactNativeApp -destination generic/platform="iOS Simulator"
