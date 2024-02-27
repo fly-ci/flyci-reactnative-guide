@@ -19,9 +19,6 @@ jobs:
       - name: Get node version
         run: node --version
 
-      - name: install node
-        run: nvm use
-
       - name: Get xcode version
         run: /usr/bin/xcodebuild -version
 
