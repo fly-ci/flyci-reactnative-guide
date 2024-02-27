@@ -1,0 +1,29 @@
+name: '[CI] React Native'
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+      - vr/add-workflow
+  workflow_dispatch:
+
+jobs:
+  ci:
+    runs-on: flyci-macos-14-m2
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install Bundle
+        run: bundle install
+
+      - name: Install pods
+        run: bundle exec pod install
+
+      - name: Install pods
+        run: bundle exec pod install
+
+      - name: Build iOS
+        run: npx react-native build-ios
