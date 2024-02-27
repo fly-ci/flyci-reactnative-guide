@@ -1,4 +1,4 @@
-node_modules
-vendor
-ios
-android
+./node_modules
+./vendor
+./ios
+./android
