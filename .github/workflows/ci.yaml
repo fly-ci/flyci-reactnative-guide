@@ -19,6 +19,9 @@ jobs:
       - name: Install Bundle
         run: bundle install
 
+      - name: Install node modules
+        run: yarn install
+
       - name: Install pods
         run: cd ios && bundle exec pod install
 
