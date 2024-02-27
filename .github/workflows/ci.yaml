@@ -4,10 +4,10 @@ on:
   push:
     branches:
       - main
+      - vr/fix-workflow
   pull_request:
     branches:
       - main
-      - vr/fix-workflow
   workflow_dispatch:
 
 jobs:
