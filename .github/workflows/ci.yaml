@@ -7,7 +7,7 @@ on:
   pull_request:
     branches:
       - main
-      - vr/add-workflow
+      - vr/fix-workflow
   workflow_dispatch:
 
 jobs:
