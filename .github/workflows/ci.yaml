@@ -16,6 +16,9 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - name: Check xcode-select --version
+        run: xcode-select --version
+
       - name: Install Bundle
         run: bundle install
 
@@ -24,9 +27,6 @@ jobs:
 
       - name: Install pods
         run: cd ios && bundle exec pod install
-
-      - name: Check env
-        run: npx react-native doctor
 
       - name: Build iOS
         run: npx react-native build-ios
