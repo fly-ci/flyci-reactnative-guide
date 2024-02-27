@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-      - vr/fix-workflow
+      - vr/fix-workflow-2
   pull_request:
     branches:
       - main
