@@ -1,4 +1,3 @@
 ./node_modules
 ./vendor
-./ios
-./android
+./ios/.xcode.env.local
