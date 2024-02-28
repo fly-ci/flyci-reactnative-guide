@@ -36,3 +36,9 @@ jobs:
         run: |
           set -o pipefail
           npx react-native build-ios
+
+      - name: Build Android
+        working-directory: ios
+        run: |
+          set -o pipefail
+          npx react-native build-android
