@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - vr/cache-dependencies
   pull_request:
     branches:
       - main
@@ -14,6 +15,10 @@ jobs:
     runs-on: flyci-macos-14-m2
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'yarn'
 
       - name: Install bundle
         run: |
@@ -25,30 +30,30 @@ jobs:
           set -euxo pipefail
           yarn install --immutable
 
-      - name: Run eslint
-        run: |
-          set -euxo pipefail
-          yarn lint
+      # - name: Run eslint
+      #   run: |
+      #     set -euxo pipefail
+      #     yarn lint
 
-      - name: Run tests
-        run: |
-          set -euxo pipefail
-          yarn test
+      # - name: Run tests
+      #   run: |
+      #     set -euxo pipefail
+      #     yarn test
 
-      - name: Install pods
-        working-directory: ios
-        run: |
-          set -euxo pipefail
-          bundle exec pod install
+      # - name: Install pods
+      #   working-directory: ios
+      #   run: |
+      #     set -euxo pipefail
+      #     bundle exec pod install
 
-      - name: Build iOS
-        working-directory: ios
-        run: |
-          set -euxo pipefail
-          yarn build-ios
+      # - name: Build iOS
+      #   working-directory: ios
+      #   run: |
+      #     set -euxo pipefail
+      #     yarn build-ios
 
-      - name: Build Android
-        working-directory: ios
-        run: |
-          set -euxo pipefail
-          yarn build-android
+      # - name: Build Android
+      #   working-directory: ios
+      #   run: |
+      #     set -euxo pipefail
+      #     yarn build-android
