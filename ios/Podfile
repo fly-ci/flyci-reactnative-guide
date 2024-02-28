@@ -53,3 +53,5 @@ target 'FlyCIReactNativeApp' do
     )
   end
 end
+
+pod 'libevent', :inhibit_warnings => true
