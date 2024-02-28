@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-      - vr/build-for-android
+      - vr/add-tests
   pull_request:
     branches:
       - main
@@ -25,6 +25,18 @@ jobs:
         run: |
           set -euxo pipefail
           yarn install --immutable
+
+      - name: Run eslint
+        working-directory: ios
+        run: |
+          set -euxo pipefail
+          yarn lint
+
+      - name: Run eslint
+        working-directory: ios
+        run: |
+          set -euxo pipefail
+          yarn test
 
       - name: Install pods
         working-directory: ios
