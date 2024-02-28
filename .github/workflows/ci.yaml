@@ -26,13 +26,11 @@ jobs:
           yarn install --immutable
 
       - name: Run eslint
-        working-directory: ios
         run: |
           set -euxo pipefail
           yarn lint
 
-      - name: Run eslint
-        working-directory: ios
+      - name: Run tests
         run: |
           set -euxo pipefail
           yarn test
