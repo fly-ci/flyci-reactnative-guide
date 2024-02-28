@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - vr/build-for-android
   pull_request:
     branches:
       - main
