@@ -19,11 +19,9 @@ jobs:
         with:
           node-version: 20
           cache: 'yarn'
-
-      - name: Install bundle
-        run: |
-          set -euxo pipefail
-          bundle install
+      - uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
 
       - name: Install node modules
         run: |
