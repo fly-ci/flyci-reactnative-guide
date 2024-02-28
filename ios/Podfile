@@ -54,5 +54,4 @@ target 'FlyCIReactNativeApp' do
   end
 end
 
-# ignore all warnings from all pods
-inhibit_all_warnings!
+pod 'libevent', :inhibit_warnings => true
