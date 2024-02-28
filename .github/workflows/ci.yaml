@@ -15,14 +15,15 @@ jobs:
     runs-on: flyci-macos-14-m2
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: 'yarn'
-      - name: Get ruby version
-        run: ruby --version
+
       - uses: ruby/setup-ruby@v1
         with:
+          ruby-version: 3.0
           bundler-cache: true
 
       - name: Install node modules
