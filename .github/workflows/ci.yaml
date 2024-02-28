@@ -19,6 +19,8 @@ jobs:
         with:
           node-version: 20
           cache: 'yarn'
+      - name: Get ruby version
+        run: ruby --version
       - uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
