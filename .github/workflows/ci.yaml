@@ -7,7 +7,6 @@ on:
   pull_request:
     branches:
       - main
-      - vr/add-workflow
   workflow_dispatch:
 
 jobs:
@@ -17,13 +16,23 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Install Bundle
-        run: bundle install
+        run: |
+          set -o pipefail
+          bundle install
+
+      - name: Install node modules
+        run: |
+          set -o pipefail
+          yarn install --immutable
 
       - name: Install pods
-        run: bundle exec pod install
-
-      - name: Install pods
-        run: bundle exec pod install
+        working-directory: ios
+        run: |
+          set -o pipefail
+          bundle exec pod install
 
       - name: Build iOS
-        run: npx react-native build-ios
+        working-directory: ios
+        run: |
+          set -o pipefail
+          npx react-native build-ios
