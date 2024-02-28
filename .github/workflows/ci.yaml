@@ -31,30 +31,30 @@ jobs:
           set -euxo pipefail
           yarn install --immutable
 
-      # - name: Run eslint
-      #   run: |
-      #     set -euxo pipefail
-      #     yarn lint
+      - name: Run eslint
+        run: |
+          set -euxo pipefail
+          yarn lint
 
-      # - name: Run tests
-      #   run: |
-      #     set -euxo pipefail
-      #     yarn test
+      - name: Run tests
+        run: |
+          set -euxo pipefail
+          yarn test
 
-      # - name: Install pods
-      #   working-directory: ios
-      #   run: |
-      #     set -euxo pipefail
-      #     bundle exec pod install
+      - name: Install pods
+        working-directory: ios
+        run: |
+          set -euxo pipefail
+          bundle exec pod install
 
-      # - name: Build iOS
-      #   working-directory: ios
-      #   run: |
-      #     set -euxo pipefail
-      #     yarn build-ios
+      - name: Build iOS
+        working-directory: ios
+        run: |
+          set -euxo pipefail
+          yarn build-ios
 
-      # - name: Build Android
-      #   working-directory: ios
-      #   run: |
-      #     set -euxo pipefail
-      #     yarn build-android
+      - name: Build Android
+        working-directory: ios
+        run: |
+          set -euxo pipefail
+          yarn build-android
