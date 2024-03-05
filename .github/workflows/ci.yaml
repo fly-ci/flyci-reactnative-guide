@@ -58,6 +58,7 @@ jobs:
           key: ${{ runner.os }}-pods-${{ hashFiles('ios/Podfile.lock') }}
 
       - name: Install pods
+        if: steps.pods-cache.outputs.cache-hit != 'true'
         working-directory: ios
         run: |
           set -euxo pipefail
