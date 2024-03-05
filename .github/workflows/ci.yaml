@@ -26,10 +26,19 @@ jobs:
           ruby-version: 3.3
           bundler-cache: true
 
-      - name: Install node modules
+      - name: Cache node_modules
+        id: modules-cache
+        uses: actions/cache@v3
+        with:
+          path: ./node_modules
+          key: ${{ runner.os }}-modules-${{ hashFiles('yarn.lock') }}
+
+      - name: Install node_modules
+        if: steps.modules-cache.outputs.cache-hit != 'true'
+        shell: bash
         run: |
           set -euxo pipefail
-          yarn install --immutable
+          yarn install --frozen-lockfile
 
       - name: Run eslint
         run: |
@@ -40,6 +49,13 @@ jobs:
         run: |
           set -euxo pipefail
           yarn test
+
+      - name: Cache Pods
+        uses: actions/cache@v3
+        id: pods-cache
+        with:
+          path: ./ios/Pods
+          key: ${{ runner.os }}-pods-${{ hashFiles('ios/Podfile.lock') }}
 
       - name: Install pods
         working-directory: ios
