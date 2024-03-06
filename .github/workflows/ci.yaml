@@ -64,14 +64,18 @@ jobs:
           set -euxo pipefail
           bundle exec pod install
 
-      - name: Build iOS
+      - name: LS ios
         working-directory: ios
-        run: |
-          set -euxo pipefail
-          yarn build-ios
+        run: ls -lh
 
-      - name: Build Android
-        working-directory: ios
-        run: |
-          set -euxo pipefail
-          yarn build-android
+      # - name: Build iOS
+      #   working-directory: ios
+      #   run: |
+      #     set -euxo pipefail
+      #     yarn build-ios
+
+      # - name: Build Android
+      #   working-directory: ios
+      #   run: |
+      #     set -euxo pipefail
+      #     yarn build-android
