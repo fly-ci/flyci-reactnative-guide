@@ -11,7 +11,7 @@ on:
   workflow_dispatch:
 
 env:
-  CI: true
+  NO_FLIPPER: 1
 
 jobs:
   ci:
