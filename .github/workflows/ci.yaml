@@ -10,6 +10,9 @@ on:
       - main
   workflow_dispatch:
 
+env:
+  CI: true
+
 jobs:
   ci:
     runs-on: flyci-macos-14-m2
