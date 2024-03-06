@@ -68,11 +68,11 @@ jobs:
         working-directory: ios
         run: ls -lh
 
-      # - name: Build iOS
-      #   working-directory: ios
-      #   run: |
-      #     set -euxo pipefail
-      #     yarn build-ios
+      - name: Build iOS
+        working-directory: ios
+        run: |
+          set -euxo pipefail
+          yarn build-ios
 
       # - name: Build Android
       #   working-directory: ios
