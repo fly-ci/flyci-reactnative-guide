@@ -12,6 +12,7 @@ on:
 
 env:
   NO_FLIPPER: 1
+  CI: 1
 
 jobs:
   ci:
