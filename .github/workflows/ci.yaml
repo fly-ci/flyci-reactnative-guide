@@ -38,7 +38,7 @@ jobs:
           key: ${{ runner.os }}-modules-${{ hashFiles('yarn.lock') }}
 
       - name: Install node_modules
-        if: steps.modules-cache.outputs.cache-hit != 'true'
+        # if: steps.modules-cache.outputs.cache-hit != 'true'
         shell: bash
         run: |
           set -euxo pipefail
@@ -62,15 +62,10 @@ jobs:
           key: ${{ runner.os }}-pods-${{ hashFiles('ios/Podfile.lock') }}
 
       - name: Install pods
-        if: steps.pods-cache.outputs.cache-hit != 'true'
         working-directory: ios
         run: |
           set -euxo pipefail
           bundle exec pod install
-
-      - name: LS ios
-        working-directory: ios
-        run: ls -lh
 
       - name: Build iOS
         working-directory: ios
