@@ -12,7 +12,6 @@ on:
 
 env:
   NO_FLIPPER: 1
-  CI: 1
 
 jobs:
   ci:
@@ -38,7 +37,6 @@ jobs:
           key: ${{ runner.os }}-modules-${{ hashFiles('yarn.lock') }}
 
       - name: Install node_modules
-        # if: steps.modules-cache.outputs.cache-hit != 'true'
         shell: bash
         run: |
           set -euxo pipefail
