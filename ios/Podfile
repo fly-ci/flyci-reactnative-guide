@@ -57,9 +57,9 @@ end
 # ignore all warnings from all pods
 inhibit_all_warnings!
 
-if ENV['CI']
-  use_flipper!
-  post_install do |installer|
-    flipper_post_install(installer)
-  end
-end
+# if ENV['CI']
+#   use_flipper!
+#   post_install do |installer|
+#     flipper_post_install(installer)
+#   end
+# end
