@@ -9,9 +9,6 @@ on:
       - main
   workflow_dispatch:
 
-env:
-  NO_FLIPPER: 1
-
 jobs:
   ci:
     runs-on: flyci-macos-14-m2
@@ -27,12 +24,12 @@ jobs:
         with:
           bundler-cache: true
 
-      - name: Cache node_modules
-        id: modules-cache
-        uses: actions/cache@v4
-        with:
-          path: ./node_modules
-          key: ${{ runner.os }}-modules-${{ hashFiles('yarn.lock') }}
+      # - name: Cache node_modules
+      #   id: modules-cache
+      #   uses: actions/cache@v4
+      #   with:
+      #     path: ./node_modules
+      #     key: ${{ runner.os }}-modules-${{ hashFiles('yarn.lock') }}
 
       - name: Install node_modules
         shell: bash
@@ -59,6 +56,8 @@ jobs:
 
       - name: Install pods
         working-directory: ios
+        env:
+          NO_FLIPPER: 1
         run: |
           set -euxo pipefail
           bundle exec pod install
@@ -69,8 +68,8 @@ jobs:
           set -euxo pipefail
           yarn build-ios
 
-      # - name: Build Android
-      #   working-directory: ios
-      #   run: |
-      #     set -euxo pipefail
-      #     yarn build-android
+      - name: Build Android
+        working-directory: ios
+        run: |
+          set -euxo pipefail
+          yarn build-android
