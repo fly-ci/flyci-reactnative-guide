@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - vr/cache-dependencies
   pull_request:
     branches:
       - main
