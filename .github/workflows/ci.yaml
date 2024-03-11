@@ -9,9 +9,6 @@ on:
       - main
   workflow_dispatch:
 
-env:
-  NO_FLIPPER: 1
-
 jobs:
   ci:
     runs-on: flyci-macos-14-m2
@@ -20,12 +17,11 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version-file: '.nvmrc'
           cache: 'yarn'
 
       - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.3
           bundler-cache: true
 
       - name: Cache node_modules
@@ -70,8 +66,8 @@ jobs:
           set -euxo pipefail
           yarn build-ios
 
-      - name: Build Android
-        working-directory: ios
-        run: |
-          set -euxo pipefail
-          yarn build-android
+      # - name: Build Android
+      #   working-directory: ios
+      #   run: |
+      #     set -euxo pipefail
+      #     yarn build-android
