@@ -54,9 +54,6 @@ target 'FlyCIReactNativeApp' do
   end
 end
 
-# ignore all warnings from all pods
-inhibit_all_warnings!
-
 if !ENV['NO_FLIPPER']
   use_flipper!
   post_install do |installer|
