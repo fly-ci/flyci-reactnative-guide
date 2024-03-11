@@ -70,8 +70,8 @@ jobs:
           set -euxo pipefail
           yarn build-ios
 
-      # - name: Build Android
-      #   working-directory: ios
-      #   run: |
-      #     set -euxo pipefail
-      #     yarn build-android
+      - name: Build Android
+        working-directory: ios
+        run: |
+          set -euxo pipefail
+          yarn build-android
