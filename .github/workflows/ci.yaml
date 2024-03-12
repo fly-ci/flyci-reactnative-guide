@@ -24,13 +24,6 @@ jobs:
         with:
           bundler-cache: true
 
-      # - name: Cache node_modules
-      #   id: modules-cache
-      #   uses: actions/cache@v4
-      #   with:
-      #     path: ./node_modules
-      #     key: ${{ runner.os }}-modules-${{ hashFiles('yarn.lock') }}
-
       - name: Install node_modules
         shell: bash
         run: |
