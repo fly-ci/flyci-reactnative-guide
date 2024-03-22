@@ -6,4 +6,4 @@ This project is tightly coupled to the corresponding [guide for building a React
 
 ## License
 
-This project is licensed under the Apache License.
+This project is licensed under the MIT License.
