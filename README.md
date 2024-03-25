@@ -23,7 +23,7 @@ Go to the project folder and run the following steps:
 - `yarn build-ios` or `yarn build-android` to build the project
 - `yarn ios` or `yarn android` to run it
 
-NOTE: For any issues build failing due to Flipper dependency, you might check [this discussion](https://github.com/facebook/react-native/issues/43335).
+NOTE: If you have issues with your build failing due to Flipper dependency, you might check [this discussion](https://github.com/facebook/react-native/issues/43335).
 
 ## License
 
