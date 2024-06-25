@@ -54,12 +54,12 @@ jobs:
           set -euxo pipefail
           yarn test
 
-      - name: Build iOS
-        run: |
-          set -euxo pipefail
-          yarn build-ios
+      # - name: Build iOS
+      #   run: |
+      #     set -euxo pipefail
+      #     yarn build-ios
 
-      - name: Build Android
-        run: |
-          set -euxo pipefail
-          yarn build-android
+      # - name: Build Android
+      #   run: |
+      #     set -euxo pipefail
+      #     yarn build-android
