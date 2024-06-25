@@ -11,7 +11,7 @@ on:
 
 jobs:
   ci:
-    runs-on: flyci-macos-14-m2
+    runs-on: [flyci-macos-14-m2, wingman]
     steps:
       - uses: actions/checkout@v4
 
