@@ -15,7 +15,7 @@ jobs:
       id-token: write
       contents: read
 
-    runs-on: ubuntu-latest
+    runs-on: flyci-macos-14-m2
     steps:
       - uses: actions/checkout@v4
 
