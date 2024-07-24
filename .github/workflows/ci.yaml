@@ -11,7 +11,10 @@ on:
 
 jobs:
   ci:
-    runs-on: [flyci-macos-14-m2, wingman]
+    runs-on: flyci-macos-14-m2
+    permissions:
+      id-token: write
+      contents: read
     steps:
       - uses: actions/checkout@v4
 
@@ -54,12 +57,16 @@ jobs:
           set -euxo pipefail
           yarn test
 
-      # - name: Build iOS
-      #   run: |
-      #     set -euxo pipefail
-      #     yarn build-ios
+      - name: Build iOS
+        run: |
+          set -euxo pipefail
+          yarn build-ios
 
-      # - name: Build Android
-      #   run: |
-      #     set -euxo pipefail
-      #     yarn build-android
+      - name: Build Android
+        run: |
+          set -euxo pipefail
+          yarn build-android
+
+      - name: Fix my build
+        uses: fly-ci/wingman-action@v1
+        if: failure()
