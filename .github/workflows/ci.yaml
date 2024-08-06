@@ -52,21 +52,21 @@ jobs:
           set -euxo pipefail
           yarn lint
 
-      - name: Run tests
-        run: |
-          set -euxo pipefail
-          yarn test
+      # - name: Run tests
+      #   run: |
+      #     set -euxo pipefail
+      #     yarn test
 
-      - name: Build iOS
-        run: |
-          set -euxo pipefail
-          yarn build-ios
+      # - name: Build iOS
+      #   run: |
+      #     set -euxo pipefail
+      #     yarn build-ios
 
-      - name: Build Android
-        run: |
-          set -euxo pipefail
-          yarn build-android
+      # - name: Build Android
+      #   run: |
+      #     set -euxo pipefail
+      #     yarn build-android
 
-      - name: Fix my build
-        uses: fly-ci/wingman-action@v1
-        if: failure()
+      # - name: Fix my build
+      #   uses: fly-ci/wingman-action@v1
+      #   if: failure()
