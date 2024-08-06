@@ -67,6 +67,6 @@ jobs:
       #     set -euxo pipefail
       #     yarn build-android
 
-      # - name: Fix my build
-      #   uses: fly-ci/wingman-action@v1
-      #   if: failure()
+      - name: Fix my build
+        uses: fly-ci/wingman-action@v1
+        if: failure()
