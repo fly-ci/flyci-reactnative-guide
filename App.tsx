@@ -59,11 +59,13 @@ function Section({ children, title }: SectionProps): React.JSX.Element {
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
 
-  /*eslint no-const-assign: "error"*/
-  const a = 0;
-  a = 1;
-
-  console.log(a);
+  /*eslint use-isnan: "error"*/
+  let foo;
+  if (foo != NaN) {
+    console.log(foo);
+  } else {
+    console.log('foo is NaN');
+  }
 
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
