@@ -26,5 +26,5 @@ it('should render Step One', async () => {
 
   const stepOne = await screen.findByText('Step One');
 
-  expect(stepOne).toHaveTextContent('Step One');
+  expect(stepOne).toHaveTextContent('Step Two');
 });
